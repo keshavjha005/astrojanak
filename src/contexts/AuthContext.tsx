@@ -77,7 +77,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Simulate API delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     //added the commit 
-    // Check if user already exists ok n
+    // Check if user already exists
     const userExists = MOCK_USERS.some(u => u.email === email);
     
     if (userExists) {
