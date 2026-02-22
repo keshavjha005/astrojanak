@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-cosmic-light/20 selection:text-foreground;
+    background: linear-gradient(135deg, #F8F9FD 0%, #F1F1F1 100%);
+    min-height: 100vh;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+}
+
+/* Light modal style for AuthModal */
+.light-modal {
+  @apply bg-white/90 backdrop-blur-xl border border-cosmic/30 shadow-lg;
+  box-shadow: 0 4px 30px rgba(139, 90, 43, 0.2);
+}
+
+/* Enhanced cosmic glass effect - now lighter */
+.cosmic-glass {
+  @apply bg-white/95 backdrop-blur-xl border border-cosmic/20 shadow-lg hover:shadow-xl transition-shadow duration-300;
+  box-shadow: 0 4px 20px rgba(139, 90, 43, 0.15);
+}
+
+/* Dashboard content background - lighter version */
+.dashboard-content {
+  @apply bg-white/95 border border-cosmic/20 rounded-lg shadow-lg text-cosmic-dark;
+}
+
+/* Text colors for select components - adjusted for light theme */
+.select-content {
+  @apply bg-white/90 text-cosmic-dark border-cosmic/20;
+}
+
+/* Card hover effect */
+.hover-card {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+
+/* Enhanced scrollbar for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cosmic/5 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cosmic/30 rounded-full hover:bg-cosmic/50 transition-colors;
+}
+
+/* Enhanced text glow - softer for light theme */
+.text-glow {
+  text-shadow: 0 0 15px rgba(139, 90, 43, 0.3);
+}
+
+/* Card shine effect */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 45%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.4) 55%,
+    transparent 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 6s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); }
+  100% { transform: translateX(100%) rotate(30deg); }
+}
+
+/* Navigation link hover effect */
+.nav-link {
+  @apply relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 
+         after:bottom-0 after:left-0 after:bg-cosmic after:origin-bottom-right after:transition-transform;
+}
+
+.nav-link:hover::after {
+  @apply scale-x-100 origin-bottom-left;
+}
+
+/* Button hover effect */
+.btn-hover-effect {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+}
+
+/* Pulse animation for buttons */
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(139, 90, 43, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(139, 90, 43, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(139, 90, 43, 0);
+  }
+}
+
+/* Add more visible form elements for light theme */
+input, select, textarea {
+  @apply bg-white/70 border-cosmic/30 text-cosmic-dark placeholder:text-cosmic-dark/50;
+}
+
+/* Fixed SelectContent text visibility */
+[data-radix-select-item] {
+  @apply text-cosmic-dark;
+}
+
+/* Enhanced sidebar styles for light theme */
+.sidebar-item-active {
+  @apply bg-cosmic/20 text-cosmic-dark;
+}
+
+/* Fix sidebar menu button hover */
+[data-sidebar="menu-button"]:hover {
+  @apply bg-cosmic/20 text-cosmic-dark;
+}
+
+/* Improved sidebar visibility on hover */
+[data-sidebar="menu-button"] {
+  @apply text-cosmic-dark hover:bg-cosmic/10 hover:text-cosmic transition-all duration-200;
+}
+
+[data-sidebar="menu-button"][data-active="true"] {
+  @apply bg-cosmic/20 text-cosmic !important;
+}
+
+/* Improve text contrast */
+.text-high-contrast {
+  @apply text-cosmic font-medium;
+}
+
+/* Improve card visibility */
+.card-enhanced {
+  @apply bg-white/95 border-cosmic/30 text-cosmic-dark;
+}
+
+/* Logo animation enhanced */
+.logo-pulse {
+  animation: logo-pulse 3s ease-in-out infinite;
+}
+
+@keyframes logo-pulse {
+  0% {
+    filter: brightness(1) drop-shadow(0 0 2px rgba(139, 90, 43, 0.3));
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(139, 90, 43, 0.5));
+    transform: scale(1.05);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 2px rgba(139, 90, 43, 0.3));
+    transform: scale(1);
+  }
+}
+
+/* Highlight animations */
+.highlight-pulse {
+  animation: highlight-pulse 2s infinite;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% { border-color: rgba(139, 90, 43, 0.3); }
+  50% { border-color: rgba(139, 90, 43, 0.7); }
+}
+
+/* Improved tab highlighting */
+.tab-active {
+  @apply bg-cosmic/30 text-cosmic;
+}
+
+/* About page specific styles */
+.about-content p {
+  @apply text-cosmic-dark;
+}
+
+.about-content h3 {
+  @apply text-cosmic;
+}
+
+/* Fix sidebar button visibility on active state */
+[data-sidebar="menu-button"][data-active="true"] {
+  @apply bg-cosmic/20 text-cosmic !important;
+}
+
+/* Mail section animations */
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.mail-item {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.mail-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.mail-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.mail-item:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.mail-item:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Avatar glow effect */
+.avatar-glow {
+  box-shadow: 0 0 15px rgba(139, 90, 43, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.avatar-glow:hover {
+  box-shadow: 0 0 25px rgba(139, 90, 43, 0.5);
+}
+
+/* Enhanced button transitions */
+.enhanced-btn-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.enhanced-btn-transition:hover {
+  transform: translateY(-2px);
+}
+
+/* Badge animation */
+.badge-pulse {
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Fix radix tabs component text color */
+.radix-tabs-trigger {
+  @apply text-cosmic-dark;
+}
+
+/* Enhancement for dropdown content visibility */
+[data-radix-popper-content-wrapper] {
+  @apply text-cosmic-dark;
+}
+
+/* Admin panel redesign for light theme */
+.admin-sidebar {
+  @apply bg-white/95 border-cosmic/20;
+}
+
+.admin-content {
+  @apply bg-white/95;
+}
+
+/* Light theme admin cards */
+.admin-card {
+  @apply bg-white/95 border-cosmic/20 shadow-md hover:shadow-lg transition-all duration-300;
+}
+
+/* Fix action buttons in user management */
+.action-button {
+  @apply bg-cosmic/20 hover:bg-cosmic/30 text-cosmic-dark hover:text-cosmic p-1.5 rounded-md transition-all;
+}
+
+/* Improved action icons visibility */
+.action-icon {
+  @apply text-cosmic-dark hover:text-cosmic transition-colors;
+}
+
+/* Blog content improved visibility */
+.blog-content p,
+.blog-content h2,
+.blog-content h3 {
+  @apply text-cosmic-dark;
+}
+
+/* Improved text contrast for settings */
+.settings-page h2, 
+.settings-page h3, 
+.settings-page label, 
+.settings-page p {
+  @apply text-cosmic-dark font-medium;
+}
